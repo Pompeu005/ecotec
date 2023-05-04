@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>teste</title>
-    <link rel="stylesheet" href="/public/style.css"">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
   </head>
   <body>
+    <p id="resultado"></p>
     <script>
       // Configurar o SDK do Firebase
       var firebaseConfig = {
@@ -27,17 +27,19 @@
     </script>
     <script>
       // Escrever dados no banco de dados
-      database.ref('meu-nodo').set({
+      database.ref('teste').set({
         nome: 'João',
         idade: 28
       });
     </script>
     <script>
       // Ler dados do banco de dados
-      database.ref('meu-nodo').once('value').then(function(snapshot) {
+      database.ref('teste').once('value').then(function(snapshot) {
         var nome = snapshot.child('nome').val();
         var idade = snapshot.child('idade').val();
-        console.log(nome + ' tem ' + idade + ' anos.');
+        var mensagem = nome + ' tem ' + idade + ' anos.';
+        console.log(mensagem);
+        document.getElementById("resultado").innerHTML = mensagem;
       });
     </script>
     <h1>asdasd</h1>
