@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>teste</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  </head>
+  <body>
+    <p id="resultado"></p>
+    <script>
+      // utilizar para configurar o banco de dados
+      var firebaseConfig = {
+        apiKey: "teste-ecotec-firebase-adminsdk-g9fhe-edeb292781.json",
+        authDomain: "https://teste-ecotec.firebaseapp.com/",
+        databaseURL: "https://teste-ecotec-default-rtdb.firebaseio.com/",
+        projectId: "132076904937",
+        storageBucket: "gs://teste-ecotec.appspot.com",
+        messagingSenderId: "132076904937",
+        appId: "1:132076904937:web:b63b54a73edbca78b66b78"
+      };
+      firebase.initializeApp(firebaseConfig);
+      
+      // Obter uma referência ao banco de dados
+      var database = firebase.database();
+    </script>
+    <script>
+      // metodo set() para escrever dados 
+      database.ref('teste').set({
+        nome: 'João e jamila',
+        idade: 1000
+      });
+    </script>
+    <script>
+      // Ler dados do banco de dados com metodo onde()
+      database.ref('teste').once('value').then(function(snapshot) {
+        var nome = snapshot.child('nome').val();
+        var idade = snapshot.child('idade').val();
+        var mensagem = nome + ' tem ' + idade + ' anos.';
+        console.log(mensagem);
+        document.getElementById("resultado").innerHTML = mensagem;
+      });
+    </script>
+    <h1>asdasd</h1>
+    <a href="/controle_op/index.html">asdasdasd</a>
+  </body>
+</html>

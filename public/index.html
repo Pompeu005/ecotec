@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>teste</title>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-  </head>
-  <body>
-    <p id="resultado"></p>
-    <script>
-      // Configurar o SDK do Firebase
-      var firebaseConfig = {
-        apiKey: "teste-ecotec-firebase-adminsdk-g9fhe-edeb292781.json",
-        authDomain: "https://teste-ecotec.firebaseapp.com/",
-        databaseURL: "https://teste-ecotec-default-rtdb.firebaseio.com/",
-        projectId: "132076904937",
-        storageBucket: "gs://teste-ecotec.appspot.com",
-        messagingSenderId: "132076904937",
-        appId: "1:132076904937:web:b63b54a73edbca78b66b78"
-      };
-      firebase.initializeApp(firebaseConfig);
-      
-      // Obter uma referência ao banco de dados
-      var database = firebase.database();
-    </script>
-    <script>
-      // Escrever dados no banco de dados
-      database.ref('teste').set({
-        nome: 'João',
-        idade: 28
-      });
-    </script>
-    <script>
-      // Ler dados do banco de dados
-      database.ref('teste').once('value').then(function(snapshot) {
-        var nome = snapshot.child('nome').val();
-        var idade = snapshot.child('idade').val();
-        var mensagem = nome + ' tem ' + idade + ' anos.';
-        console.log(mensagem);
-        document.getElementById("resultado").innerHTML = mensagem;
-      });
-    </script>
-    <h1>asdasd</h1>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>teste</title>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header_icom">
+        <img src="" alt="">
+    </div>
+    <div class="header_label">
+        <h1>ecotec</h1>
+    </div>
+  </header>
+  <main>
+    <nav>
+        <a href="/fluxo de caixa/index.html">fluxo de caixa</a>
+        <a href="/controle estoque/index.html">controle de estoque</a>
+        <a href="/controle_op/index.html">controle de op</a>
+    </nav>
+  </main>
+<footer>
+    <p>asaasd asda asd <br>asd as  aaaa</p>
+</footer>   
+
+        
+</body>
 </html>
